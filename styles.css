@@ -1316,6 +1316,10 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .team-card {
+    width: 100% !important;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: 40px;
