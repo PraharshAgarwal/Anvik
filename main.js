@@ -133,6 +133,8 @@ function initCounters() {
 function animateCounter(el) {
   const target = parseInt(el.getAttribute('data-count'));
   const suffix = el.getAttribute('data-suffix') || '';
+  const fromAttr = el.getAttribute('data-count-from');
+  const from = fromAttr === 'current' ? new Date().getFullYear() : (fromAttr ? parseInt(fromAttr) : 0);
   const duration = 2000;
   const start = performance.now();
 
@@ -140,7 +142,7 @@ function animateCounter(el) {
     const elapsed = now - start;
     const progress = Math.min(elapsed / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-    const current = Math.floor(eased * target);
+    const current = Math.floor(from + eased * (target - from));
     el.textContent = current + suffix;
 
     if (progress < 1) {
@@ -155,7 +157,7 @@ function animateCounter(el) {
 
 /* ---------- Smooth Scroll for Anchor Links ---------- */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
+  anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
       e.preventDefault();
