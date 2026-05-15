@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivek Khaitan - Director | Anvik Innovbiz</title>
+  <meta name="description"
+    content="Vivek Khaitan - Director at Anvik Innovbiz. Seasoned manufacturing leader with deep experience in chemicals, pharma, and renewable energy plant operations.">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" href="../assets/images/logo-noText.png" type="image/png">
+  <style>
+    .dir-hero {
+      background: var(--bg-dark);
+      padding: 160px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dir-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(45, 106, 79, .18), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .dir-profile {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 60px;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dir-photo {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      border-radius: var(--radius-lg);
+      aspect-ratio: 3/4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid rgba(255, 255, 255, .1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dir-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+
+    .dir-photo .photo-ph {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .dir-photo .photo-ph i {
+      font-size: 5rem;
+      color: rgba(255, 255, 255, .25);
+      margin-bottom: 10px;
+    }
+
+    .dir-photo .photo-ph span {
+      color: rgba(255, 255, 255, .35);
+      font-size: .8rem;
+    }
+
+    .dir-badge {
+      position: absolute;
+      bottom: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: var(--text-dark);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: var(--radius-xl);
+      white-space: nowrap;
+    }
+
+    .dir-info h1 {
+      color: var(--text-white);
+      margin-bottom: 6px;
+    }
+
+    .dir-title {
+      color: var(--accent);
+      font-size: 1.05rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+      margin-bottom: 22px;
+    }
+
+    .dir-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .dir-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 13px;
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: var(--radius-xl);
+      color: rgba(255, 255, 255, .75);
+      font-size: .8rem;
+    }
+
+    .dir-tag i {
+      color: var(--accent);
+      font-size: .72rem;
+    }
+
+    .dir-bio p {
+      color: rgba(255, 255, 255, .75);
+      font-size: 1rem;
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+
+    .dir-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 11px 22px;
+      background: #0077B5;
+      color: white;
+      border-radius: var(--radius-xl);
+      font-size: .9rem;
+      font-weight: 600;
+      transition: var(--transition-base);
+    }
+
+    .dir-linkedin:hover {
+      background: #005f91;
+      transform: translateY(-2px);
+    }
+
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .exp-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 28px 22px;
+      text-align: center;
+      transition: var(--transition-base);
+    }
+
+    .exp-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-light);
+    }
+
+    .exp-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: white;
+      margin: 0 auto 14px;
+    }
+
+    .exp-card h4 {
+      font-size: .95rem;
+      margin-bottom: 8px;
+    }
+
+    .exp-card p {
+      font-size: .85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .peer-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .peer-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 22px;
+      background: var(--bg-white);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      color: var(--text-dark);
+      font-size: .88rem;
+      transition: var(--transition-base);
+      min-width: 210px;
+    }
+
+    .peer-link:hover {
+      background: rgba(45, 106, 79, .06);
+      border-color: var(--accent);
+      color: var(--text-dark);
+      transform: translateY(-2px);
+    }
+
+    .peer-av {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .peer-av img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .peer-name {
+      font-weight: 600;
+      color: var(--text-dark);
+      display: block;
+    }
+
+    .peer-role-txt {
+      font-size: .75rem;
+      color: var(--accent);
+      display: block;
+    }
+
+    @media(max-width:900px) {
+      .dir-profile {
+        grid-template-columns: 1fr;
+      }
+
+      .exp-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:580px) {
+      .exp-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <img src="../assets/images/logo-nobg-2.png" alt="Anvik Innovbiz Logo">
+        <span>Anvik</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../products.html">Products</a>
+        <a href="../gallery.html">Gallery</a>
+        <a href="../team.html" class="active">Team</a>
+        <a href="../contact.html">Contact</a>
+        <a href="tel:+919999886822" class="nav-cta"><i class="fas fa-phone"></i> +91 9999886822</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="dir-hero">
+    <div class="container">
+      <div class="breadcrumb" style="margin-bottom:36px;">
+        <a href="../index.html">Home</a><span>/</span>
+        <a href="../team.html">Our Team</a><span>/</span>
+        <span style="color:rgba(255,255,255,.7);">Vivek Khaitan</span>
+      </div>
+      <div class="dir-profile">
+        <div class="reveal-left" style="position:relative;">
+          <div class="dir-photo">
+            <div class="photo-ph">
+              <i class="fas fa-user"></i>
+              <span>Photo Coming Soon</span>
+            </div>
+            <img src="../assets/images/team/member-2.jpg" alt="Vivek Khaitan" onerror="this.style.display='none';">
+          </div>
+          <div class="dir-badge">Director</div>
+        </div>
+        <div class="dir-info reveal-right" style="padding-top:16px;">
+          <div class="section-label" style="color:var(--accent);text-align:left;">Leadership</div>
+          <h1>Vivek Khaitan</h1>
+          <div class="dir-title">Director &mdash; Anvik Innovbiz Pvt. Ltd.</div>
+          <div class="dir-tags">
+            <span class="dir-tag"><i class="fas fa-industry"></i> Manufacturing Expert</span>
+            <span class="dir-tag"><i class="fas fa-flask"></i> Chemicals &amp; Pharma</span>
+            <span class="dir-tag"><i class="fas fa-solar-panel"></i> Renewable Energy</span>
+            <span class="dir-tag"><i class="fas fa-cogs"></i> Plant Management</span>
+            <span class="dir-tag"><i class="fas fa-shield-alt"></i> Quality &amp; Compliance</span>
+          </div>
+          <div class="dir-bio">
+            <p>Vivek Khaitan is a seasoned manufacturing and operations leader with a career spanning high-complexity
+              industries including <strong style="color:var(--accent);">chemicals, pharmaceuticals, and renewable
+                energy</strong>. His cross-industry experience gives him a uniquely rigorous approach to plant
+              management, combining the precision and compliance standards of chemicals/pharma with the scale and
+              sustainability demands of clean energy production.</p>
+            <p>Having worked across manufacturing environments where process control, safety, and quality are
+              non-negotiable, Vivek brings disciplined operational frameworks to Anvik Innovbiz. His deep understanding
+              of plant engineering, supply chain logistics, and anaerobic digestion technology has been instrumental in
+              establishing and scaling the company's manufacturing capabilities at its Pilibhit facility.</p>
+            <p>As Director at Anvik Innovbiz, Vivek oversees end-to-end plant operations, from feedstock procurement and
+              digestion processes to gas purification and manure enrichment, driving continuous improvement and
+              championing environmentally responsible manufacturing at every stage.</p>
+          </div>
+          <a href="https://www.linkedin.com/in/vivekkhaitan/" target="_blank" class="dir-linkedin">
+            <i class="fab fa-linkedin-in"></i> Connect on LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Core Competencies</div>
+        <h2>Areas of Expertise</h2>
+        <p>Deep operational and technical expertise powering India's renewable energy transition.</p>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card reveal">
+          <div class="exp-icon"><i class="fas fa-fire-alt"></i></div>
+          <h4>Anaerobic Digestion</h4>
+          <p>End-to-end expertise in biogas plant design, feedstock management, and digestion process optimization.</p>
+        </div>
+        <div class="exp-card reveal">
+          <div class="exp-icon"><i class="fas fa-industry"></i></div>
+          <h4>Plant Operations</h4>
+          <p>Hands-on management of manufacturing facilities ensuring consistent output quality and operational uptime.
+          </p>
+        </div>
+        <div class="exp-card reveal">
+          <div class="exp-icon"><i class="fas fa-recycle"></i></div>
+          <h4>Sustainable Manufacturing</h4>
+          <p>Designing zero-waste production models that maximize resource recovery from agricultural feedstocks.</p>
+        </div>
+        <div class="exp-card reveal">
+          <div class="exp-icon"><i class="fas fa-truck"></i></div>
+          <h4>Supply Chain &amp; Logistics</h4>
+          <p>Streamlining feedstock procurement, inventory management, and finished product distribution networks.</p>
+        </div>
+        <div class="exp-card reveal">
+          <div class="exp-icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>Quality &amp; Compliance</h4>
+          <p>Implementing rigorous quality control protocols and ensuring regulatory compliance across all operations.
+          </p>
+        </div>
+        <div class="exp-card reveal">
+          <div class="exp-icon"><i class="fas fa-flask"></i></div>
+          <h4>Chemicals &amp; Pharma Industry</h4>
+          <p>Background in high-compliance chemicals and pharmaceutical manufacturing, bringing rigorous process
+            control and safety standards to biogas plant operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <div class="section-label" style="color:var(--accent);text-align:left;">His Role at Anvik</div>
+          <h2>Driving <span style="color:var(--accent);">Operational Excellence</span></h2>
+          <p style="color:rgba(255,255,255,.75);">Vivek leads all manufacturing and plant operations at Anvik Innovbiz's
+            facility in Pilibhit, Uttar Pradesh. He is responsible for ensuring that the anaerobic digestion process
+            runs at peak efficiency, from managing diverse feedstocks like press mud, Napier grass, paddy straw, and
+            cow dung, to delivering purified CBG and enriched FOM to end markets.</p>
+          <p style="color:rgba(255,255,255,.75);">His operational philosophy centers on reliability, sustainability, and
+            continuous improvement, ensuring that every tonne of agri-waste processed yields maximum value for Anvik
+            and its stakeholders.</p>
+          <div style="display:flex; gap:40px; margin-top:32px; flex-wrap:wrap;">
+            <div>
+              <div style="font-family:var(--font-heading);font-size:2rem;color:var(--accent);font-weight:700;">Chem
+              </div>
+              <div style="color:rgba(255,255,255,.55);font-size:.82rem;">Industry Background</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-heading);font-size:2rem;color:var(--accent);font-weight:700;">Pharma
+              </div>
+              <div style="color:rgba(255,255,255,.55);font-size:.82rem;">Domain Experience</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-heading);font-size:2rem;color:var(--accent);font-weight:700;">CBG</div>
+              <div style="color:rgba(255,255,255,.55);font-size:.82rem;">Current Focus</div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-right" style="display:flex;flex-direction:column;gap:16px;">
+          <div class="card card-glass">
+            <div class="card-body">
+              <div
+                style="width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+                <i class="fas fa-industry" style="color:white;font-size:1rem;"></i></div>
+              <h4 style="color:var(--text-white);font-size:.95rem;margin-bottom:8px;">Manufacturing Process Design</h4>
+              <p style="color:rgba(255,255,255,.65);font-size:.88rem;">Designs, engineers, and optimises the
+                manufacturing processes at the Pilibhit plant, ensuring technical standards, safety compliance, and
+                process efficiency across all production stages.</p>
+            </div>
+          </div>
+          <div class="card card-glass">
+            <div class="card-body">
+              <div
+                style="width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+                <i class="fas fa-seedling" style="color:white;font-size:1rem;"></i></div>
+              <h4 style="color:var(--text-white);font-size:.95rem;margin-bottom:8px;">Feedstock Management</h4>
+              <p style="color:rgba(255,255,255,.65);font-size:.88rem;">Manages procurement of press mud, Napier grass,
+                paddy straw, and other biodegradable inputs from local agri networks.</p>
+            </div>
+          </div>
+          <div class="card card-glass">
+            <div class="card-body">
+              <div
+                style="width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+                <i class="fas fa-chart-line" style="color:white;font-size:1rem;"></i></div>
+              <h4 style="color:var(--text-white);font-size:.95rem;margin-bottom:8px;">Process Improvement</h4>
+              <p style="color:rgba(255,255,255,.65);font-size:.88rem;">Continuously refines production processes to
+                increase yield, reduce waste, and lower operational costs across all stages.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Leadership Team</div>
+        <h2>Meet the Other Directors</h2>
+      </div>
+      <div class="peer-row">
+        <a href="director-ankush-goel.html" class="peer-link">
+          <div class="peer-av"><img src="../assets/images/team/member-1.jpg" alt="Ankush Goel"
+              onerror="this.outerHTML='<i class=\'fas fa-user\'></i>'"></div>
+          <div><span class="peer-name">Ankush Goel</span><span class="peer-role-txt">Director</span></div>
+          <i class="fas fa-arrow-right" style="margin-left:auto;opacity:.5;"></i>
+        </a>
+        <a href="director-sumit-agarwal.html" class="peer-link">
+          <div class="peer-av"><img src="../assets/images/team/member-3.jpg" alt="Sumit Agarwal"
+              onerror="this.outerHTML='<i class=\'fas fa-user\'></i>'"></div>
+          <div><span class="peer-name">Sumit Agarwal</span><span class="peer-role-txt">Director</span></div>
+          <i class="fas fa-arrow-right" style="margin-left:auto;opacity:.5;"></i>
+        </a>
+        <a href="../team.html" class="peer-link">
+          <div class="peer-av" style="background:var(--accent);"><i class="fas fa-users"></i></div>
+          <div><span class="peer-name">Full Team</span><span class="peer-role-txt">View all members</span></div>
+          <i class="fas fa-arrow-right" style="margin-left:auto;opacity:.5;"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../assets/images/logo-noText.png" alt="Anvik Innovbiz Logo">
+          <p>Anvik Innovbiz Private Limited is a pioneering company in the manufacturing of Renewable Natural Gas and
+            Fermented Organic Manure through advanced anaerobic digestion technology.</p>
+          <div class="footer-social" style="margin-top:20px;">
+            <a href="https://www.linkedin.com/company/anvik-innovbiz-private-limited/" target="_blank"
+              aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="../index.html">Home</a><a href="../about.html">About Us</a>
+            <a href="../products.html">Products</a><a href="../gallery.html">Gallery</a>
+            <a href="../team.html">Our Team</a><a href="../contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <div class="footer-links">
+            <a href="../products.html">Compressed Bio Gas</a>
+            <a href="../products.html">Organic Manure</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contact Us</h4>
+          <div class="footer-contact">
+            <p><i class="fas fa-map-marker-alt"></i> Ghata No. 147 &amp; 148, Village Baigpur, Puranpur, Pilibhit
+              262122, IN</p>
+            <p><i class="fas fa-envelope"></i> techanvik@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 9999106907 / +91 9999886822</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Anvik Innovbiz Pvt. Ltd. All rights reserved.</p>
+        <p>Manufacturer of Compressed Bio Gas &amp; Fermented Organic Manure</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+
+</html>
