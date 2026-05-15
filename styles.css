@@ -298,9 +298,14 @@ p {
 }
 
 .nav-logo img {
-  height: 75px;
+  height: 50px;
   width: auto;
 }
+
+/* .nav-logo img {
+  height: 75px;
+  width: auto;
+} */
 
 .nav-logo span {
   font-family: var(--font-heading);
@@ -324,26 +329,43 @@ p {
   transition: var(--transition-fast);
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
   color: var(--text-white);
   background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a.active {
+  color: var(--accent);
+  background: transparent;
+  position: relative;
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
 }
 
 .nav-cta {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 24px;
+  gap: 7px;
+  padding: 7px 18px;
   background: var(--accent);
   color: var(--text-dark) !important;
-  border-radius: var(--radius-xl);
+  border-radius: 8px;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
 }
 
 .nav-cta:hover {
-  background: var(--accent-light) !important;
+  background: #b8895a !important;
   transform: translateY(-1px);
 }
 
@@ -698,9 +720,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(10, 31, 20, 0.5)
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='38' height='38' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z'/%3E%3C/svg%3E")
-    no-repeat center center;
+  background: rgba(10, 31, 20, 0.5) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='38' height='38' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z'/%3E%3C/svg%3E") no-repeat center center;
   opacity: 0;
   transition: var(--transition-base);
 }
@@ -874,7 +894,7 @@ p {
 }
 
 .footer-brand img {
-  height: 50px;
+  height: 100px;
 }
 
 .footer h4 {
@@ -1283,10 +1303,13 @@ p {
     color: rgba(255, 255, 255, 0.85);
   }
 
-  .nav-links a:hover,
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+
   .nav-links a.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-white);
+    color: var(--accent);
+    text-decoration: underline;
   }
 
   .nav-links .nav-cta {
