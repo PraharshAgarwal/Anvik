@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initLightbox();
   initCounters();
+  initParticles();
+  initFlipCards();
+  initBackToTop();
 });
 
 /* ---------- Navbar Scroll Effect ---------- */
@@ -165,3 +168,87 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+/* ---------- Hero Particles ---------- */
+function initParticles() {
+  const container = document.getElementById('hero-particles');
+  if (!container) return;
+
+  const particleCount = 22;
+
+  // [r, g, b] from the site's colour palette
+  const colors = [
+    [82, 183, 136],   // --secondary green
+    [64, 145, 108],   // --primary-light
+    [212, 163, 115],  // --accent gold
+    [252, 213, 131],  // --gold
+  ];
+
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    const isLeaf   = Math.random() > 0.32;                    // ~68 % leaves, 32 % dots
+    const baseSize = isLeaf
+      ? (Math.random() * 10 + 8)                             // leaf: 8 – 18 px
+      : (Math.random() * 6  + 4);                            // dot:  4 – 10 px
+
+    const opacity  = (Math.random() * 0.25 + 0.12).toFixed(2); // 0.12 – 0.37
+    const [r, g, b] = colors[Math.floor(Math.random() * colors.length)];
+    const color    = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+
+    const duration = (Math.random() * 12 + 13).toFixed(1);   // 13 – 25 s
+    const delay    = -(Math.random() * 22).toFixed(1);        // negative → already in-flight on load
+    const xStart   = (Math.random() * 96 + 2).toFixed(1);    // 2 – 98 %
+    const xDrift   = (Math.random() * 130 - 65).toFixed(0);  // -65 to +65 px lateral drift
+    const rotStart = Math.floor(Math.random() * 360);         // random initial rotation
+
+    particle.classList.add(
+      'hero-particle',
+      isLeaf ? 'hero-particle--leaf' : 'hero-particle--dot'
+    );
+
+    particle.style.left            = `${xStart}%`;
+    particle.style.width           = `${baseSize.toFixed(1)}px`;
+    particle.style.height          = `${(isLeaf ? baseSize * 1.7 : baseSize).toFixed(1)}px`;
+    particle.style.backgroundColor = color;
+    particle.style.animationDuration  = `${duration}s`;
+    particle.style.animationDelay     = `${delay}s`;
+    particle.style.setProperty('--x-drift',        `${xDrift}px`);
+    particle.style.setProperty('--rotation-start', `${rotStart}deg`);
+
+    container.appendChild(particle);
+  }
+}
+
+/* ---------- Flip Cards (touch / tap support) ---------- */
+function initFlipCards() {
+  document.querySelectorAll('.flip-card').forEach(card => {
+    card.addEventListener('click', function (e) {
+      // Let link clicks navigate without toggling the flip
+      if (e.target.closest('a')) return;
+      this.classList.toggle('flipped');
+    });
+  });
+}
+
+/* ---------- Back to Top ---------- */
+function initBackToTop() {
+  // Create button and inject into every page automatically
+  const btn = document.createElement('button');
+  btn.id          = 'back-to-top';
+  btn.className   = 'back-to-top';
+  btn.setAttribute('aria-label', 'Back to top');
+  btn.innerHTML   = '<i class="fas fa-chevron-up"></i>';
+  document.body.appendChild(btn);
+
+  // Show after scrolling 400 px, hide when near top
+  const onScroll = () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // run once on load in case page is already scrolled
+
+  // Smooth scroll to top
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
