@@ -448,15 +448,19 @@ p {
     transform: translateY(0) translateX(0) rotate(var(--rotation-start, 0deg));
     opacity: 0;
   }
+
   8% {
     opacity: 1;
   }
+
   46% {
     transform: translateY(-50vh) translateX(var(--x-drift, 40px)) rotate(calc(var(--rotation-start, 0deg) + 180deg));
   }
+
   92% {
     opacity: 1;
   }
+
   100% {
     transform: translateY(-110vh) translateX(calc(var(--x-drift, 40px) * 0.5)) rotate(calc(var(--rotation-start, 0deg) + 360deg));
     opacity: 0;
@@ -566,8 +570,8 @@ p {
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     radial-gradient(circle, rgba(255, 255, 255, 0.09) 1.5px, transparent 1.5px);
   background-size: 40px 40px, 40px 40px, 40px 40px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 65%, rgba(0,0,0,0) 100%);
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 65%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.55) 65%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.55) 65%, rgba(0, 0, 0, 0) 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -762,6 +766,36 @@ p {
   height: 360px;
 }
 
+/* Core team flex grid */
+.core-team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+}
+
+.core-team-card {
+  width: calc(33.333% - 22px);
+  height: auto !important;
+}
+
+/* Since hover is disabled, make front face use normal flow (not absolute) */
+.core-team-card .flip-card-inner {
+  height: auto;
+}
+
+.core-team-card .flip-card-front {
+  position: relative;
+  inset: auto;
+  padding: 32px 24px;
+}
+
+/* Hover flip disabled for core team cards */
+.core-team-card:hover .flip-card-inner,
+.core-team-card.flipped .flip-card-inner {
+  transform: none !important;
+}
+
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -846,9 +880,22 @@ p {
 }
 
 @keyframes hintSpin {
-  0%, 60% { transform: rotate(0deg); opacity: 1; }
-  80%      { transform: rotate(180deg); opacity: 0.5; }
-  100%     { transform: rotate(360deg); opacity: 1; }
+
+  0%,
+  60% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: rotate(180deg);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
 }
 
 /* ---- Back face ---- */
@@ -1652,6 +1699,10 @@ p {
     width: 100% !important;
   }
 
+  .core-team-card {
+    width: calc(50% - 16px);
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1694,6 +1745,20 @@ p {
 @media (max-width: 480px) {
   .stats-row {
     grid-template-columns: 1fr;
+  }
+
+  .core-team-card {
+    width: 100%;
+  }
+
+  .core-team-card .flip-card-front {
+    padding: 24px 20px;
+  }
+
+  .core-team-card .flip-card-front img {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 14px;
   }
 
   h1 {
